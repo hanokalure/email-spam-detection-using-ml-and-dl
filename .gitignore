@@ -40,10 +40,15 @@ Thumbs.db
 # Large datasets and models (too big for GitHub)
 data/*.csv
 data/spamassassin/
+data/enron_raw/
+data/*.tar.gz
 models/*.pkl
+models/*.pt  # Large transformer models (180MB+ each)
 
-# Keep example models (smaller files if any)
+# Keep smaller example models and reports
 !models/example_*.pkl
+!models/*.json
+!models/README.md
 
 # Logs
 *.log

@@ -6,13 +6,17 @@ Main entry point for choosing and using different spam detection models
 
 import os
 import sys
-import joblib
 import time
 from pathlib import Path
 
 # Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
-from simple_svm_classifier import SimpleSVMClassifier, SimplePreprocessor
+
+# Import all available predictors
+from predict_enhanced_transformer import EnhancedTransformerPredictor
+from predict_transformer import TransformerPredictor
+from predict_svm import SVMPredictor
+from predict_catboost import CatBoostPredictor
 
 class ModelManager:
     """Manages multiple spam detection models"""
@@ -27,17 +31,43 @@ class ModelManager:
         """Scan for available model files"""
         models = {}
         
-        # Define model information
+        # All available ML models
         model_info = {
-            "svm_full.pkl": {
-                "name": "Support Vector Machine (SVM)", 
-                "accuracy": "98.29%",
-                "type": "SVM"
+            # Enhanced Transformer - Latest model with 99.48% recall
+            "enhanced_transformer_99recall.pt": {
+                "name": "🥇 Enhanced Transformer – 99.48% Spam Recall",
+                "accuracy": "96.65% (99.48% spam recall!)",
+                "type": "Enhanced_Transformer",
+                "dataset": "Comprehensive dataset (15.5K)",
+                "speed": "~10-20ms (GPU)",
+                "details": "Latest trained model with focal loss and max recall optimization"
             },
+            # Original Transformer
+            "transformer_best.pt": {
+                "name": "🥈 Transformer (Original) – Balanced Performance",
+                "accuracy": "~95-96% (balanced precision/recall)",
+                "type": "Transformer",
+                "dataset": "Mixed dataset",
+                "speed": "~10-20ms (GPU)",
+                "details": "Original transformer model with balanced performance"
+            },
+            # SVM Model
+            "svm_full.pkl": {
+                "name": "🥉 SVM (Support Vector Machine) – Fast & Reliable",
+                "accuracy": "~95-98% (traditional ML)",
+                "type": "SVM",
+                "dataset": "Email corpus",
+                "speed": "~1-5ms (CPU)",
+                "details": "Fast traditional ML model with TF-IDF features"
+            },
+            # CatBoost Model
             "catboost_tuned.pkl": {
-                "name": "CatBoost",
-                "accuracy": "97.60%",
-                "type": "CatBoost"
+                "name": "🚀 CatBoost – Gradient Boosting Power",
+                "accuracy": "~96-97% (ensemble method)",
+                "type": "CatBoost",
+                "dataset": "Comprehensive dataset",
+                "speed": "~5-15ms (CPU)",
+                "details": "Gradient boosting with automatic feature engineering"
             }
         }
         
@@ -110,19 +140,35 @@ class ModelManager:
         """Load the selected model"""
         try:
             model_path = info["path"]
+            model_type = info["type"]
             
-            if info["type"] == "SVM":
-                # Load SVM model
-                classifier = SimpleSVMClassifier()
-                classifier.load_model(model_path)
-                self.current_model = classifier
+            if model_type == "Enhanced_Transformer":
+                # Load Enhanced Transformer predictor
+                predictor = EnhancedTransformerPredictor(model_path)
+                self.current_model = predictor
+                self.predict_method = "enhanced_transformer"
+            
+            elif model_type == "Transformer":
+                # Load Original Transformer predictor
+                predictor = TransformerPredictor(model_path)
+                self.current_model = predictor
+                self.predict_method = "transformer"
+            
+            elif model_type == "SVM":
+                # Load SVM predictor
+                predictor = SVMPredictor(model_path)
+                self.current_model = predictor
                 self.predict_method = "svm"
-                
-            elif info["type"] == "CatBoost":
-                # Load CatBoost model
-                model_data = joblib.load(model_path)
-                self.current_model = model_data
+            
+            elif model_type == "CatBoost":
+                # Load CatBoost predictor
+                predictor = CatBoostPredictor(model_path)
+                self.current_model = predictor
                 self.predict_method = "catboost"
+                
+            else:
+                print(f"❌ Unknown model type: {model_type}")
+                return False
             
             self.current_model_info = info
             return True
@@ -131,7 +177,7 @@ class ModelManager:
             print(f"❌ Error loading model: {e}")
             return False
     
-    def predict_text(self, text, threshold=0.0):
+    def predict_text(self, text):
         """Make prediction with current model"""
         if not self.current_model:
             return None, None, "No model loaded"
@@ -139,43 +185,10 @@ class ModelManager:
         start_time = time.time()
         
         try:
-            if self.predict_method == "svm":
-                # SVM prediction
-                prediction, confidence = self.current_model.predict(text)
-                label = "SPAM" if prediction == 1 else "HAM"
-                
-                # Apply threshold
-                if abs(confidence) <= threshold:
-                    label = "HAM"  # Below threshold = HAM
-                
-            elif self.predict_method == "catboost":
-                # CatBoost prediction
-                preprocessor = self.current_model["preprocessor"]
-                vectorizer = self.current_model["vectorizer"] 
-                classifier = self.current_model["classifier"]
-                
-                # Preprocess and vectorize
-                processed_text = preprocessor.preprocess(text)
-                text_vec = vectorizer.transform([processed_text])
-                
-                # Predict
-                prediction = classifier.predict(text_vec)[0]
-                try:
-                    # Try to get prediction probability
-                    proba = classifier.predict_proba(text_vec)[0]
-                    confidence = max(proba)
-                    if prediction == 0:
-                        confidence = proba[0]  # Ham confidence
-                    else:
-                        confidence = proba[1]  # Spam confidence
-                except:
-                    confidence = 0.8 if prediction == 1 else 0.8
-                
-                label = "SPAM" if prediction == 1 else "HAM"
-                
-                # Apply threshold
-                if confidence <= threshold:
-                    label = "HAM"
+            # Enhanced Transformer prediction (context-aware, no manual threshold)
+            result = self.current_model.predict(text)
+            label = result.get("prediction", "HAM")
+            confidence = result.get("probability", 0.5)
             
             prediction_time = time.time() - start_time
             return label, confidence, prediction_time
@@ -201,12 +214,12 @@ def main():
     print("Commands:")
     print("  - Enter email text to classify")
     print("  - 'models' to switch models")
-    print("  - 'threshold X' to set spam threshold (e.g., 'threshold 0.5')")
     print("  - 'info' to show current model info")
     print("  - 'quit' to exit")
     print("-" * 70)
     
-    current_threshold = 0.0
+    # No manual threshold; Enhanced Transformer applies context-aware logic by default
+    print("💡 Transformer (Enhanced) uses built-in context-aware classification; no threshold needed.")
     
     while True:
         try:
@@ -231,14 +244,6 @@ def main():
                     break
                 continue
                 
-            elif user_input.lower().startswith('threshold '):
-                try:
-                    new_threshold = float(user_input.split()[1])
-                    current_threshold = new_threshold
-                    print(f"✅ Threshold set to {current_threshold}")
-                except:
-                    print("❌ Invalid threshold. Use: threshold 0.5")
-                continue
                 
             elif user_input.lower() == 'info':
                 if manager.current_model_info:
@@ -247,13 +252,15 @@ def main():
                     print(f"   Accuracy: {info['accuracy']}")
                     print(f"   Dataset: {info['dataset']}")
                     print(f"   Speed: {info['speed']}")
-                    print(f"   Threshold: {current_threshold}")
+                    if 'details' in info:
+                        print(f"   Details: {info['details']}")
+                    print(f"   Uses context-aware classification (no manual threshold)")
                 continue
             
             # Make prediction
             print(f"\n🔄 Analyzing with {manager.current_model_info['name']}...")
             
-            label, confidence, pred_time = manager.predict_text(user_input, current_threshold)
+            label, confidence, pred_time = manager.predict_text(user_input)
             
             if label:
                 # Format output
@@ -270,11 +277,6 @@ def main():
                 if isinstance(pred_time, (int, float)):
                     print(f"   Prediction time: {pred_time*1000:.1f}ms")
                 
-                # Threshold info
-                if current_threshold > 0:
-                    print(f"   Threshold applied: {current_threshold}")
-                    if label == "HAM" and confidence and confidence <= current_threshold:
-                        print(f"   💡 Classified as HAM due to threshold")
                 
             else:
                 print(f"❌ {pred_time}")  # Error message
