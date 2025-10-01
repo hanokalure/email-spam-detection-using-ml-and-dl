@@ -30,28 +30,19 @@ class ModelManager:
         # Define model information
         model_info = {
             "svm_5k.pkl": {
-                "name": "SVM Original (5K Dataset)",
+                "name": "SVM Small (5K)",
                 "accuracy": "99.66%",
-                "dataset": "SpamAssassin (~3.8K emails)",
-                "type": "SVM",
-                "speed": "Very Fast",
-                "description": "🏆 Highest accuracy - Original model"
+                "type": "SVM"
             },
             "svm_14k.pkl": {
-                "name": "SVM Large (14K Dataset)", 
+                "name": "SVM Big (14K)", 
                 "accuracy": "98.29%",
-                "dataset": "Mega Combined (~14.3K emails)",
-                "type": "SVM",
-                "speed": "Very Fast",
-                "description": "Large dataset but lower accuracy"
+                "type": "SVM"
             },
-            "catboost.pkl": {
-                "name": "CatBoost (14K Dataset)",
-                "accuracy": "97.98%", 
-                "dataset": "Mega Combined (~14.3K emails)",
-                "type": "CatBoost",
-                "speed": "Fast",
-                "description": "Advanced gradient boosting model"
+            "catboost_tuned.pkl": {
+                "name": "CatBoost",
+                "accuracy": "97.60%",
+                "type": "CatBoost"
             }
         }
         
@@ -66,7 +57,7 @@ class ModelManager:
     def display_models(self):
         """Display available models in a nice format"""
         print("🎯 Email Spam Detection - Model Selection")
-        print("=" * 70)
+        print("=" * 50)
         print()
         
         if not self.available_models:
@@ -74,17 +65,11 @@ class ModelManager:
             return False
         
         print("Available Models:")
-        print("-" * 70)
+        print("-" * 30)
         
         for i, (filename, info) in enumerate(self.available_models.items(), 1):
-            status_icon = "✅" if info["exists"] else "❌"
-            
-            print(f"{i}. {info['name']}")
-            print(f"   Accuracy: {info['accuracy']} | Speed: {info['speed']}")
-            print(f"   Dataset: {info['dataset']}")
-            print(f"   Description: {info['description']}")
-            print(f"   Status: {status_icon}")
-            print()
+            print(f"{i}. {info['name']} - {info['accuracy']}")
+        print()
         
         return True
     
