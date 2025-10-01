@@ -29,13 +29,8 @@ class ModelManager:
         
         # Define model information
         model_info = {
-            "svm_5k.pkl": {
-                "name": "SVM Small (5K)",
-                "accuracy": "99.66%",
-                "type": "SVM"
-            },
-            "svm_14k.pkl": {
-                "name": "SVM Big (14K)", 
+            "svm_full.pkl": {
+                "name": "Support Vector Machine (SVM)", 
                 "accuracy": "98.29%",
                 "type": "SVM"
             },
