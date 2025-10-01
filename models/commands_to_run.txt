@@ -1,0 +1,2 @@
+to activate svm model : sms_env\Scripts\activate.bat
+to run the main svm model : python predict_smart.py --interactive --threshold 1.0
