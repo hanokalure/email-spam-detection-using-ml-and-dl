@@ -277,7 +277,7 @@ class DirectPDFReportGenerator:
             
             # Re-import after installation
             global SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak
-            global getSampleStyleSheet, ParagraphStyle, colors, letter
+            global getSampleStyleSheet, ParagraphStyle, colors, letter, TA_CENTER, TA_LEFT, inch
             from reportlab.lib import colors
             from reportlab.lib.pagesizes import letter
             from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak
@@ -329,119 +329,149 @@ class DirectPDFReportGenerator:
         story.append(Paragraph(summary_text, styles['Normal']))
         story.append(Spacer(1, 20))
         
-        # Performance Summary Table
-        story.append(Paragraph("Overall Performance Summary", heading_style))
+        # For your requested short summary format, we skip cross-model comparison and focus per model.
         
-        summary_data = [['Model', 'Overall Accuracy', 'SPAM Detection', 'HAM Detection', 'Perfect Categories']]
-        
-        for model_name in analysis:
-            summary_data.append([
-                model_name,
-                f"{analysis[model_name]['overall_accuracy']:.1f}%",
-                f"{analysis[model_name]['spam_accuracy']:.1f}%",
-                f"{analysis[model_name]['ham_accuracy']:.1f}%",
-                str(len(analysis[model_name]['perfect_categories']))
-            ])
-        
-        summary_table = Table(summary_data)
-        summary_table.setStyle(TableStyle([
-            ('BACKGROUND', (0, 0), (-1, 0), colors.darkblue),
-            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
-            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
-            ('FONTSIZE', (0, 0), (-1, 0), 12),
-            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
-            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
-            ('GRID', (0, 0), (-1, -1), 1, colors.black)
-        ]))
-        
-        story.append(summary_table)
-        story.append(Spacer(1, 20))
-        
-        # Detailed breakdown for each model
+        # Per-model sections
         for model_name in analysis:
             story.append(PageBreak())
-            story.append(Paragraph(f"{model_name} - Detailed Analysis", heading_style))
-            
-            # Performance categories
-            perf_data = [
-                ['Performance Level', 'Categories', 'Count'],
-                ['Perfect (100%)', ', '.join([cat.replace('SPAM_', '').replace('HAM_', '') for cat in analysis[model_name]['perfect_categories']]) or 'None', len(analysis[model_name]['perfect_categories'])],
-                ['Excellent (95-99%)', ', '.join([cat.replace('SPAM_', '').replace('HAM_', '') for cat in analysis[model_name]['excellent_categories']]) or 'None', len(analysis[model_name]['excellent_categories'])],
-                ['Good (85-94%)', ', '.join([cat.replace('SPAM_', '').replace('HAM_', '') for cat in analysis[model_name]['good_categories']]) or 'None', len(analysis[model_name]['good_categories'])],
-                ['Okay (70-84%)', ', '.join([cat.replace('SPAM_', '').replace('HAM_', '') for cat in analysis[model_name]['okay_categories']]) or 'None', len(analysis[model_name]['okay_categories'])],
-                ['Poor (<70%)', ', '.join([cat.replace('SPAM_', '').replace('HAM_', '') for cat in analysis[model_name]['poor_categories']]) or 'None', len(analysis[model_name]['poor_categories'])]
+            story.append(Paragraph(f"{model_name} - Summary", heading_style))
+
+            # Metrics table
+            metrics_data = [
+                ['Metric', 'Value'],
+                ['Overall Accuracy', f"{analysis[model_name]['overall_accuracy']:.1f}%"],
+                ['SPAM Detection Accuracy', f"{analysis[model_name]['spam_accuracy']:.1f}%"],
+                ['HAM Detection Accuracy', f"{analysis[model_name]['ham_accuracy']:.1f}%"],
+                ['Number of Perfect Categories', str(len(analysis[model_name]['perfect_categories']))]
             ]
-            
-            perf_table = Table(perf_data, colWidths=[1.5*inch, 3.5*inch, 0.8*inch])
-            perf_table.setStyle(TableStyle([
+            metrics_table = Table(metrics_data, colWidths=[2.7*inch, 3.3*inch])
+            metrics_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.darkblue),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black)
+            ]))
+            story.append(metrics_table)
+            story.append(Spacer(1, 12))
+
+            # Helper: partition categories by type for perfect categories
+            perfect_spam = []
+            perfect_ham = []
+            for cat in analysis[model_name]['perfect_categories']:
+                if cat.startswith('SPAM_'):
+                    perfect_spam.append(cat.replace('SPAM_', ''))
+                elif cat.startswith('HAM_'):
+                    perfect_ham.append(cat.replace('HAM_', ''))
+
+            # Perfectly works on table
+            story.append(Paragraph("Perfectly Works On", heading_style))
+            perfect_data = [
+                ['Type', 'Categories'],
+                ['SPAM', Paragraph('<br/>'.join(perfect_spam) if perfect_spam else 'None', styles['Normal'])],
+                ['HAM', Paragraph('<br/>'.join(perfect_ham) if perfect_ham else 'None', styles['Normal'])]
+            ]
+            perfect_table = Table(perfect_data, colWidths=[1.0*inch, 5.0*inch])
+            perfect_table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (-1, 0), colors.darkgreen),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
                 ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
                 ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
-                ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
                 ('BACKGROUND', (0, 1), (-1, -1), colors.lightgrey),
                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
                 ('VALIGN', (0, 0), (-1, -1), 'TOP')
             ]))
-            
-            story.append(perf_table)
-            story.append(Spacer(1, 15))
-            
-            # Category scores
-            story.append(Paragraph("Category-wise Performance", heading_style))
-            
-            category_data = [['Category', 'Type', 'Accuracy', 'Correct/Total']]
-            
+            story.append(perfect_table)
+            story.append(Spacer(1, 12))
+
+            # Not recommended table (poor performance: <70%)
+            story.append(Paragraph("Not Recommended (Low Accuracy)", heading_style))
+            poor_spam = []
+            poor_ham = []
+            # Build from results using threshold
             for category_name, category_results in results.items():
                 if model_name in category_results:
-                    stats = category_results[model_name]
-                    category_type = "SPAM" if category_name.startswith('SPAM_') else "HAM"
-                    clean_name = category_name.replace('SPAM_', '').replace('HAM_', '').replace('_', ' ')
-                    
-                    category_data.append([
-                        clean_name,
-                        category_type,
-                        f"{stats['accuracy']:.1f}%",
-                        f"{stats['correct']}/{stats['total']}"
-                    ])
-            
-            category_table = Table(category_data)
-            category_table.setStyle(TableStyle([
+                    acc = category_results[model_name]['accuracy']
+                    if acc < 70:
+                        if category_name.startswith('SPAM_'):
+                            poor_spam.append(category_name.replace('SPAM_', ''))
+                        elif category_name.startswith('HAM_'):
+                            poor_ham.append(category_name.replace('HAM_', ''))
+            poor_data = [
+                ['Type', 'Categories'],
+                ['SPAM', Paragraph('<br/>'.join(poor_spam) if poor_spam else 'None', styles['Normal'])],
+                ['HAM', Paragraph('<br/>'.join(poor_ham) if poor_ham else 'None', styles['Normal'])]
+            ]
+            poor_table = Table(poor_data, colWidths=[1.0*inch, 5.0*inch])
+            poor_table.setStyle(TableStyle([
+                ('BACKGROUND', (0, 0), (-1, 0), colors.red),
+                ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
+                ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                ('FONTSIZE', (0, 0), (-1, -1), 10),
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.whitesmoke),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ('VALIGN', (0, 0), (-1, -1), 'TOP')
+            ]))
+            story.append(poor_table)
+            story.append(Spacer(1, 12))
+
+            # Best for what type of spam and ham (within this model)
+            story.append(Paragraph("Best For (High Accuracy Categories)", heading_style))
+            # Choose high-accuracy buckets: >=95%
+            best_spam = []
+            best_ham = []
+            for category_name, category_results in results.items():
+                if model_name in category_results:
+                    acc = category_results[model_name]['accuracy']
+                    if acc >= 95:
+                        if category_name.startswith('SPAM_'):
+                            best_spam.append(category_name.replace('SPAM_', ''))
+                        elif category_name.startswith('HAM_'):
+                            best_ham.append(category_name.replace('HAM_', ''))
+            # Fallback: if none meet >=95%, pick top 2 by accuracy per type
+            if not best_spam or not best_ham:
+                # collect per-type with accuracy
+                spam_acc = []
+                ham_acc = []
+                for category_name, category_results in results.items():
+                    if model_name in category_results:
+                        acc = category_results[model_name]['accuracy']
+                        if category_name.startswith('SPAM_'):
+                            spam_acc.append((category_name.replace('SPAM_', ''), acc))
+                        elif category_name.startswith('HAM_'):
+                            ham_acc.append((category_name.replace('HAM_', ''), acc))
+                spam_acc.sort(key=lambda x: x[1], reverse=True)
+                ham_acc.sort(key=lambda x: x[1], reverse=True)
+                if not best_spam:
+                    best_spam = [name for name, _ in spam_acc[:2]]
+                if not best_ham:
+                    best_ham = [name for name, _ in ham_acc[:2]]
+
+            best_data = [
+                ['Type', 'Categories'],
+                ['SPAM', Paragraph('<br/>'.join(best_spam) if best_spam else 'None', styles['Normal'])],
+                ['HAM', Paragraph('<br/>'.join(best_ham) if best_ham else 'None', styles['Normal'])]
+            ]
+            best_table = Table(best_data, colWidths=[1.0*inch, 5.0*inch])
+            best_table.setStyle(TableStyle([
                 ('BACKGROUND', (0, 0), (-1, 0), colors.darkblue),
                 ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
                 ('ALIGN', (0, 0), (-1, -1), 'LEFT'),
-                ('ALIGN', (2, 0), (-1, -1), 'CENTER'),
                 ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
-                ('BACKGROUND', (0, 1), (-1, -1), colors.lightblue),
-                ('GRID', (0, 0), (-1, -1), 1, colors.black)
+                ('BOTTOMPADDING', (0, 0), (-1, 0), 10),
+                ('BACKGROUND', (0, 1), (-1, -1), colors.whitesmoke),
+                ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                ('VALIGN', (0, 0), (-1, -1), 'TOP')
             ]))
-            
-            story.append(category_table)
-        
-        # Recommendations
-        story.append(PageBreak())
-        story.append(Paragraph("Recommendations & Conclusions", heading_style))
-        
-        best_overall = max(analysis.keys(), key=lambda m: analysis[m]['overall_accuracy'])
-        best_spam = max(analysis.keys(), key=lambda m: analysis[m]['spam_accuracy'])
-        best_ham = max(analysis.keys(), key=lambda m: analysis[m]['ham_accuracy'])
-        
-        recommendations = f"""
-        <b>Key Findings:</b><br/>
-        • Best Overall Performance: <b>{best_overall}</b> ({analysis[best_overall]['overall_accuracy']:.1f}% accuracy)<br/>
-        • Best SPAM Detection: <b>{best_spam}</b> ({analysis[best_spam]['spam_accuracy']:.1f}% accuracy)<br/>
-        • Best HAM Detection: <b>{best_ham}</b> ({analysis[best_ham]['ham_accuracy']:.1f}% accuracy)<br/>
-        <br/>
-        <b>Usage Recommendations:</b><br/>
-        • For maximum spam detection: Use <b>{best_spam}</b><br/>
-        • For protecting legitimate emails: Use <b>{best_ham}</b><br/>
-        • For balanced performance: Use <b>{best_overall}</b><br/>
-        """
-        
-        story.append(Paragraph(recommendations, styles['Normal']))
+            story.append(best_table)
         
         # Build PDF
         doc.build(story)

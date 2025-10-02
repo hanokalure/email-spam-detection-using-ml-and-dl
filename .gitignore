@@ -58,3 +58,11 @@ models/*.pt  # Large transformer models (180MB+ each)
 
 # pytest
 .pytest_cache/
+
+# Additional large files and outputs
+catboost_info/
+comprehensive_spam_test_results.json
+*.pdf
+*_env/
+temp/
+tmp/

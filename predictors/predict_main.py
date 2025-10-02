@@ -10,12 +10,17 @@ import time
 from pathlib import Path
 
 # Add src directory to path for imports
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 # Import available predictors (Enhanced Transformer, SVM, CatBoost)
-from predict_enhanced_transformer import EnhancedTransformerPredictor
-from predict_svm import SVMPredictor
-from predict_catboost import CatBoostPredictor
+try:
+    from predict_enhanced_transformer import EnhancedTransformerPredictor
+    from predict_svm import SVMPredictor
+    from predict_catboost import CatBoostPredictor
+except ImportError as e:
+    print(f"❌ Import error: {e}")
+    print("💡 Make sure you're running from the project root directory")
+    sys.exit(1)
 
 class ModelManager:
     """Manages multiple spam detection models"""
@@ -62,10 +67,15 @@ class ModelManager:
         }
         
         # Check which models exist
+        self.models_dir.mkdir(exist_ok=True)  # Create models directory if it doesn't exist
+        
         for filename, info in model_info.items():
             model_path = self.models_dir / filename
             if model_path.exists():
                 models[filename] = {**info, "path": str(model_path), "exists": True}
+        
+        # Store info about missing models for help messages
+        self.all_model_info = model_info
         
         return models
     
@@ -77,6 +87,16 @@ class ModelManager:
         
         if not self.available_models:
             print("❌ No models found in models/ directory!")
+            print()
+            print("📥 Download models from Google Drive:")
+            print("   • Option 1 (Python):     python scripts/download_models.py")
+            print("   • Option 2 (PowerShell): .\\scripts\\download_models.ps1")
+            print("   • Option 3 (Manual):     See README.md for direct download links")
+            print()
+            print("💡 Available models to download:")
+            for filename, info in self.all_model_info.items():
+                print(f"   • {info['name']} ({info.get('accuracy', 'Unknown accuracy')})")
+            print()
             return False
         
         print("Available Models:")
@@ -84,6 +104,14 @@ class ModelManager:
         
         for i, (filename, info) in enumerate(self.available_models.items(), 1):
             print(f"{i}. {info['name']} - {info['accuracy']}")
+        
+        # Show missing models info
+        missing_count = len(self.all_model_info) - len(self.available_models)
+        if missing_count > 0:
+            print()
+            print(f"📥 {missing_count} additional models available for download.")
+            print("   Run: python scripts/download_models.py")
+        
         print()
         
         return True

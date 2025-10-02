@@ -1,0 +1,38 @@
+[models]
+# Spam Detection Models Configuration
+# These models are hosted on Google Drive due to their large size (10MB-200MB)
+
+[models.svm]
+filename = "svm_full.pkl"
+url = "https://drive.google.com/file/d/1Vxjz4QV3FESvm7gMeKNqklA5uARPntLv/view?usp=sharing"
+direct_url = "https://drive.google.com/uc?id=1Vxjz4QV3FESvm7gMeKNqklA5uARPntLv"
+description = "Support Vector Machine classifier with TF-IDF vectorization"
+size_mb = "~15MB"
+accuracy = "High accuracy for traditional spam patterns"
+
+[models.enhanced_transformer]
+filename = "enhanced_transformer_99recall.pt"
+url = "https://drive.google.com/file/d/1kGD6Tg5JLIko0XhYPk2-WtAswj1S2Pgs/view?usp=sharing"
+direct_url = "https://drive.google.com/uc?id=1kGD6Tg5JLIko0XhYPk2-WtAswj1S2Pgs"
+description = "Enhanced Transformer model optimized for maximum spam recall"
+size_mb = "~172MB"
+accuracy = "99% spam recall, excellent for modern spam patterns"
+
+[models.catboost]
+filename = "catboost_tuned.pkl"
+url = "https://drive.google.com/file/d/1ofS_IU9QiypgkvFqNGLjUvSdUfEi9hjO/view?usp=sharing"
+direct_url = "https://drive.google.com/uc?id=1ofS_IU9QiypgkvFqNGLjUvSdUfEi9hjO"
+description = "Tuned CatBoost gradient boosting classifier"
+size_mb = "~10MB"
+accuracy = "High accuracy with good performance on diverse content types"
+
+[paths]
+models_dir = "models/"
+download_script = "scripts/download_models.py"
+powershell_script = "scripts/download_models.ps1"
+
+[requirements]
+gdown = ">=4.7.1"  # For Google Drive downloads
+joblib = ">=1.3.0"  # For loading .pkl files
+torch = ">=2.0.0"   # For .pt transformer models
+catboost = ">=1.2.0"  # For CatBoost models

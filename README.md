@@ -1,193 +1,237 @@
-# Email Spam Detection using Machine Learning
+# 🚀 Email Spam Detection System
 
-An advanced email spam detection system using Support Vector Machine (SVM) with high accuracy and optimized for email environments.
+A comprehensive spam detection system with multiple machine learning models including Enhanced Transformers, SVM, and CatBoost classifiers.
 
-## 🎯 Features
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Models](https://img.shields.io/badge/models-3-green.svg)](#models)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-- **99.66% Accuracy** on email spam detection
-- **SVM-based classification** with character n-gram features
-- **Configurable spam thresholds** to balance sensitivity vs false positives
-- **Interactive prediction interface** with visual feedback
-- **Production-ready** command-line tools
-- **Comprehensive preprocessing** pipeline
+## 📋 Table of Contents
 
-## 📊 Performance
+- [Features](#-features)
+- [Quick Start](#-quick-start) 
+- [Installation](#-installation)
+- [Models](#-models)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Training](#-training)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
 
-| Model | Accuracy | Training Data | Purpose |
-|-------|----------|---------------|---------|
-| `svm_best.pkl` | **99.66%** | SpamAssassin Email Corpus (5,796 emails) | Primary email spam detection |
-| `svm.pkl` | 98.90% | Mixed dataset (11,368 messages) | Fallback/universal model |
+## ✨ Features
 
-## 🚀 Quick Start
+- **Multiple ML Models**: Enhanced Transformer (99.48% spam recall), SVM, and CatBoost
+- **Auto-Download**: Scripts to download pre-trained models from Google Drive
+- **Interactive CLI**: Easy-to-use command-line interface for spam detection
+- **Performance Reports**: Generate detailed PDF performance analysis
+- **Clean Architecture**: Well-organized codebase with separate training/prediction modules
+- **Cross-Platform**: Works on Windows, macOS, and Linux
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/hanokalure/sms-spam-detection-using-ml-and-dl.git
-   cd sms-spam-detection-using-ml-and-dl
-   ```
-
-2. **Create virtual environment**
-   ```bash
-   python -m venv sms_env
-   
-   # Windows
-   sms_env\Scripts\activate
-   
-   # macOS/Linux  
-   source sms_env/bin/activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install pandas numpy scikit-learn joblib
-   ```
-
-4. **Download pre-trained models** (see [Model Setup](#model-setup))
-
-### Basic Usage
+## ⚡ Quick Start
 
 ```bash
-# Basic spam detection (recommended for emails)
-python predict.py "Your email content here" --threshold 1.0
+# 1. Clone the repository
+git clone <your-repo-url>
+cd spam-detection
 
-# Interactive mode with visual feedback
-python predict_smart.py --interactive --threshold 1.0
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Download models (choose one option)
+# Option A - Python script
+python scripts/download_models.py
+
+# Option B - PowerShell (Windows)
+.\scripts\download_models.ps1
+
+# 4. Run spam detection
+python predictors/predict_main.py
 ```
 
-## 📧 Usage Examples
+## 🔧 Installation
 
-### Legitimate Business Email
+### Prerequisites
+- Python 3.8 or higher
+- 4GB+ RAM (for transformer models)
+- GPU recommended (but not required)
+
+### Install Dependencies
+
 ```bash
-python predict.py "Dear colleague, please find the attached quarterly report for your review. Best regards, John" --threshold 1.0
-# Output: HAM | confidence: 0.828
+pip install torch torchvision torchaudio
+pip install scikit-learn catboost joblib
+pip install gdown pandas numpy
+pip install reportlab toml  # For PDF reports and config
 ```
 
-### Spam Email Detection
+Or use requirements.txt:
 ```bash
-python predict.py "Congratulations! You have won a $1000 gift card. Click here to claim your prize immediately!" --threshold 1.0
-# Output: SPAM | confidence: 1.223
+pip install -r requirements.txt
 ```
+
+## 🤖 Models
+
+| Model | Accuracy | Size | Speed | Best For |
+|-------|----------|------|-------|----------|
+| **Enhanced Transformer** | 99.48% spam recall | ~172MB | 10-20ms | Modern spam patterns |
+| **SVM** | ~95-98% | ~15MB | 1-5ms | Fast classification |
+| **CatBoost** | ~96-97% | ~10MB | 5-15ms | Balanced performance |
+
+### Model Download
+
+Models are hosted on Google Drive due to their size (10MB-200MB each).
+
+**Automatic Download:**
+```bash
+# Download all models
+python scripts/download_models.py
+
+# Download specific models
+python scripts/download_models.py svm catboost
+
+# List available models
+python scripts/download_models.py --list
+```
+
+**Manual Download:**
+1. [SVM Model (15MB)](https://drive.google.com/file/d/1Vxjz4QV3FESvm7gMeKNqklA5uARPntLv/view?usp=sharing)
+2. [Enhanced Transformer (172MB)](https://drive.google.com/file/d/1kGD6Tg5JLIko0XhYPk2-WtAswj1S2Pgs/view?usp=sharing)  
+3. [CatBoost Model (10MB)](https://drive.google.com/file/d/1ofS_IU9QiypgkvFqNGLjUvSdUfEi9hjO/view?usp=sharing)
+
+Place downloaded files in the `models/` directory.
+
+## 📖 Usage
 
 ### Interactive Mode
 ```bash
-python predict_smart.py --interactive --threshold 1.0
-
-Message: Limited time offer! Get 50% off all products!
-🚨 SPAM
-   Confidence: HIGH (1.285)
-   Threshold: 1.0
+python predictors/predict_main.py
 ```
+This launches an interactive CLI where you can:
+- Select from available models
+- Enter email text for classification
+- Switch between models
+- View model information
 
-## ⚙️ Configuration
-
-### Threshold Guidelines
-
-| Threshold | Behavior | Use Case |
-|-----------|----------|----------|
-| `0.0` | Maximum sensitivity | Catch all possible spam |
-| **`1.0`** | **Recommended for emails** | Balance accuracy & avoid false positives |
-| `1.5` | Conservative | Only flag obvious spam |
-
-### Command Options
-
+### Direct Prediction
 ```bash
-python predict.py [EMAIL_CONTENT] [OPTIONS]
-
-Options:
-  --model, -m       Model file (default: models/svm_best.pkl)
-  --threshold, -t   Spam threshold (default: 0.0, recommended: 1.0)
-  --interactive, -i Interactive mode
+# Using specific predictors
+python predictors/predict_enhanced_transformer.py "Your email text here"
+python predictors/predict_svm.py "Your email text here"
+python predictors/predict_catboost.py "Your email text here"
 ```
 
-## 🔧 Model Setup
-
-Since trained models are large files, they are not included in the repository. You can:
-
-### Option 1: Train Your Own Models
+### Generate Performance Report
 ```bash
-# Train on your own email dataset
-python src/simple_svm_classifier.py --data path/to/your/dataset.csv --model models/svm_best.pkl
+python scripts/generate_direct_pdf_report.py
 ```
-
-### Option 2: Use Sample Dataset
-1. Download SpamAssassin dataset or similar email spam corpus
-2. Place in `data/` directory
-3. Run training script
+This creates a detailed PDF report comparing all models across different spam/ham categories.
 
 ## 📁 Project Structure
 
 ```
-sms-spam-detection-using-ml-and-dl/
-├── src/
-│   └── simple_svm_classifier.py    # Core SVM classifier
-├── models/                         # Trained models (gitignored)
-│   ├── svm_best.pkl               # Primary email model (99.66%)
-│   └── svm.pkl                    # Fallback mixed model (98.90%)
-├── data/                          # Datasets (gitignored)
-├── predict.py                     # Simple prediction script
-├── predict_smart.py              # Interactive prediction with UI
-├── test_models.py                # Model testing script
-├── EMAIL_SPAM_GUIDE.md           # Detailed usage guide
-├── SOLUTION_SUMMARY.md           # Technical implementation details
-└── requirements.txt              # Python dependencies
+spam-detection/
+├── 📁 config/           # Configuration files
+│   └── models.toml      # Model URLs and metadata
+├── 📁 data/             # Datasets (excluded from git)
+├── 📁 docs/             # Documentation
+│   ├── EMAIL_SPAM_GUIDE.md
+│   ├── MODEL_COMPARISON_GUIDE.md
+│   └── RUN_MODEL_GUIDE.md
+├── 📁 models/           # Model files (excluded from git)
+│   └── README.md
+├── 📁 predictors/       # Prediction scripts
+│   ├── predict_main.py  # Interactive CLI
+│   ├── predict_enhanced_transformer.py
+│   ├── predict_svm.py
+│   └── predict_catboost.py
+├── 📁 scripts/          # Utility scripts
+│   ├── download_models.py
+│   ├── download_models.ps1
+│   └── generate_direct_pdf_report.py
+├── 📁 src/              # Core modules
+│   ├── enhanced_transformer_classifier.py
+│   ├── svm_classifier.py
+│   └── train_*.py files
+├── 📁 training/         # Training scripts
+│   ├── train_enhanced_transformer.py
+│   ├── train_svm.py
+│   └── train_catboost.py
+└── 📄 README.md         # This file
 ```
 
-## 🧠 Technical Details
+## 🎯 Training
 
-### Feature Engineering
-- **Character n-grams (3-5)** for robust text representation
-- **TF-IDF vectorization** with sublinear scaling
-- **Balanced class weights** to handle spam/ham imbalance
-- **Advanced preprocessing** pipeline
+To train your own models:
 
-### Model Architecture
-- **LinearSVC** with optimized hyperparameters
-- **Character-level analysis** instead of word-based
-- **Cross-validated** performance metrics
-- **Confidence-based** classification with thresholds
-
-### Performance Metrics
-- **Precision**: 99.86% for spam detection
-- **Recall**: 96.60% spam detection rate
-- **F1-Score**: 97.61% balanced performance
-- **Low false positive rate** on legitimate emails
-
-## 🎯 Production Usage
-
-### Email Server Integration
+### Enhanced Transformer
 ```bash
-#!/bin/bash
-EMAIL_CONTENT="$1"
-RESULT=$(python predict.py "$EMAIL_CONTENT" --threshold 1.0)
+python training/train_enhanced_transformer.py
+```
 
-if echo "$RESULT" | grep -q "SPAM"; then
-    echo "Action: Move to spam folder"
-else
-    echo "Action: Deliver to inbox"
-fi
+### SVM Model  
+```bash
+python training/train_svm.py
+```
+
+### CatBoost Model
+```bash
+python training/train_catboost.py
+```
+
+**Training Requirements:**
+- Large dataset (10K+ emails recommended)
+- 8GB+ RAM for transformer training
+- GPU strongly recommended for transformers
+- Training time: 30min-2hours depending on model and hardware
+
+## 📚 Documentation
+
+Detailed guides available in the `docs/` folder:
+
+- **[Email Spam Guide](docs/EMAIL_SPAM_GUIDE.md)** - Understanding spam detection
+- **[Model Comparison Guide](docs/MODEL_COMPARISON_GUIDE.md)** - Choosing the right model
+- **[Run Model Guide](docs/RUN_MODEL_GUIDE.md)** - Step-by-step usage instructions
+
+## 🔍 Model Performance
+
+### Enhanced Transformer
+- **Spam Recall**: 99.48% (catches almost all spam)
+- **Overall Accuracy**: 96.65%
+- **Perfect Categories**: Financial Scams, Phishing
+- **Best For**: Modern spam patterns, complex text analysis
+
+### SVM (Support Vector Machine)
+- **Overall Accuracy**: ~95-98%
+- **Speed**: Fastest (1-5ms)
+- **Perfect Categories**: Traditional spam patterns
+- **Best For**: High-speed processing, resource-constrained environments
+
+### CatBoost
+- **Overall Accuracy**: ~96-97%
+- **Perfect Categories**: Balanced across spam/ham types
+- **Best For**: General-purpose classification, feature engineering
+
+## 🛠️ Advanced Usage
+
+### Custom Thresholds
+```python
+from predictors.predict_svm import SVMPredictor
+
+predictor = SVMPredictor('models/svm_full.pkl')
+result = predictor.predict("email text", threshold=0.7)
 ```
 
 ### Batch Processing
 ```python
-import subprocess
-
-def classify_email(content, threshold=1.0):
-    result = subprocess.run([
-        'python', 'predict.py', content, 
-        '--threshold', str(threshold)
-    ], capture_output=True, text=True)
-    return 'SPAM' in result.stdout
+texts = ["email1", "email2", "email3"]
+results = [predictor.predict(text) for text in texts]
 ```
 
-## 📈 Benchmarks
-
-Tested on various email types:
-- ✅ **Business emails**: 98.5% correct classification
-- ✅ **Newsletter/Marketing**: 95.2% correct classification  
-- ✅ **Phishing attempts**: 99.8% detection rate
-- ✅ **Promotional emails**: 96.7% correct classification
+### Model Comparison
+```bash
+python scripts/generate_direct_pdf_report.py
+# Generates comprehensive performance comparison PDF
+```
 
 ## 🤝 Contributing
 
@@ -197,22 +241,51 @@ Tested on various email types:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+## 📋 Requirements
+
+```
+torch>=2.0.0
+scikit-learn>=1.3.0
+catboost>=1.2.0
+joblib>=1.3.0
+pandas>=2.0.0
+numpy>=1.21.0
+gdown>=4.7.1
+reportlab>=4.0.0
+toml>=0.10.2
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Models not found:**
+```bash
+python scripts/download_models.py
+```
+
+**Import errors:**
+- Make sure you're in the project root directory
+- Check Python path: `python -c "import sys; print(sys.path)"`
+
+**GPU not detected:**
+- Install CUDA-compatible PyTorch: `pip install torch --index-url https://download.pytorch.org/whl/cu118`
+
+**Memory issues:**
+- Use smaller batch sizes
+- Try CPU-only mode for transformers
+- Consider using SVM for low-memory environments
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
-
-**Hanok Kalure**
-- GitHub: [@hanokalure](https://github.com/hanokalure)
-- Project Link: [https://github.com/hanokalure/sms-spam-detection-using-ml-and-dl](https://github.com/hanokalure/sms-spam-detection-using-ml-and-dl)
-
 ## 🙏 Acknowledgments
 
-- SpamAssassin project for email spam corpus
-- scikit-learn community for ML tools
-- UCI Machine Learning Repository
+- Built with PyTorch, scikit-learn, and CatBoost
+- Trained on comprehensive email datasets
+- Performance optimized for real-world usage
 
 ---
 
-⭐ **Star this repository if you found it helpful!**
+**📧 Questions?** Open an issue or check the [documentation](docs/) folder for detailed guides.
