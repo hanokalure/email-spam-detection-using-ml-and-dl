@@ -12,11 +12,12 @@ from pathlib import Path
 # Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-# Import available predictors (Enhanced Transformer, SVM, CatBoost)
+# Import available predictors (Enhanced Transformer, SVM, CatBoost, BalancedSpamNet)
 try:
     from predict_enhanced_transformer import EnhancedTransformerPredictor
     from predict_svm import SVMPredictor
     from predict_catboost import CatBoostPredictor
+    from predict_balanced_spam_net import BalancedSpamNetPredictor
 except ImportError as e:
     print(f"❌ Import error: {e}")
     print("💡 Make sure you're running from the project root directory")
@@ -37,6 +38,15 @@ class ModelManager:
         
         # Available ML models (Original Transformer removed)
         model_info = {
+            # BalancedSpamNet - Revolutionary dual-head model 
+            "balanced_spam_net_best.pt": {
+                "name": "🏆 BalancedSpamNet – 98.1% HAM Detection Breakthrough!",
+                "accuracy": "98.15% (98.1% HAM + 98.3% SPAM)",
+                "type": "BalancedSpamNet",
+                "dataset": "Comprehensive dataset (743K)",
+                "speed": "~5-15ms (GPU/CPU)",
+                "details": "Revolutionary dual-head architecture solving HAM detection crisis"
+            },
             # Enhanced Transformer - Latest model with 99.48% recall
             "enhanced_transformer_99recall.pt": {
                 "name": "🥇 Enhanced Transformer – 99.48% Spam Recall",
@@ -160,7 +170,13 @@ class ModelManager:
             model_path = info["path"]
             model_type = info["type"]
             
-            if model_type == "Enhanced_Transformer":
+            if model_type == "BalancedSpamNet":
+                # Load BalancedSpamNet predictor
+                predictor = BalancedSpamNetPredictor(model_path)
+                self.current_model = predictor
+                self.predict_method = "balanced_spam_net"
+            
+            elif model_type == "Enhanced_Transformer":
                 # Load Enhanced Transformer predictor
                 predictor = EnhancedTransformerPredictor(model_path)
                 self.current_model = predictor
@@ -230,8 +246,8 @@ def main():
     print("  - 'quit' to exit")
     print("-" * 70)
     
-    # No manual threshold; Enhanced Transformer applies context-aware logic by default
-    print("💡 Transformer (Enhanced) uses built-in context-aware classification; no threshold needed.")
+    # BalancedSpamNet and Enhanced Transformer use built-in logic
+    print("💡 Advanced models (BalancedSpamNet, Enhanced Transformer) use built-in smart classification.")
     
     while True:
         try:
@@ -272,7 +288,16 @@ def main():
             # Make prediction
             print(f"\n🔄 Analyzing with {manager.current_model_info['name']}...")
             
-            label, confidence, pred_time = manager.predict_text(user_input)
+            # Get detailed prediction result
+            if manager.predict_method == "balanced_spam_net":
+                # BalancedSpamNet returns detailed dict
+                result_dict = manager.current_model.predict(user_input)
+                label = result_dict.get('prediction', 'HAM')
+                confidence = result_dict.get('confidence', 0.5)
+                pred_time = result_dict.get('prediction_time', 0.0)
+            else:
+                # Other models return tuple
+                label, confidence, pred_time = manager.predict_text(user_input)
             
             if label:
                 # Format output
@@ -288,6 +313,18 @@ def main():
                     print(f"   Confidence: {confidence:.3f}")
                 if isinstance(pred_time, (int, float)):
                     print(f"   Prediction time: {pred_time*1000:.1f}ms")
+                
+                # Show BalancedSpamNet specific details
+                if manager.predict_method == "balanced_spam_net":
+                    spam_prob = result_dict.get('spam_probability', 0.5)
+                    ham_prob = result_dict.get('ham_probability', 0.5)
+                    print(f"   SPAM Head: {spam_prob:.3f}")
+                    print(f"   HAM Head: {ham_prob:.3f}")
+                    
+                    if result_dict.get('business_context'):
+                        business_terms = result_dict.get('business_terms_detected', [])
+                        if business_terms:
+                            print(f"   Business Context: {', '.join(business_terms[:3])}")
                 
                 
             else:

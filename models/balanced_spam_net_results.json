@@ -1,0 +1,16 @@
+{
+  "test_metrics": {
+    "accuracy": 0.981505376344086,
+    "balanced_accuracy": 0.9817472861814782,
+    "ham_accuracy": 0.9807956104252401,
+    "spam_accuracy": 0.9826989619377162,
+    "precision": 0.9681818181818181,
+    "recall": 0.9826989619377162,
+    "f1": 0.9753863766456783,
+    "loss": 0.37938217612633074
+  },
+  "best_epoch": 13,
+  "model_path": "models\\balanced_spam_net_best.pt",
+  "vocab_size": 42286,
+  "total_parameters": 17264708
+}

@@ -10,8 +10,10 @@ import torch
 import numpy as np
 from typing import Dict, List, Optional
 
-# Add src to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+# Add project subdirectories to path (src and training)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'src'))
+sys.path.insert(0, os.path.join(BASE_DIR, 'training'))
 
 from enhanced_spam_preprocessor import EnhancedSpamPreprocessor
 from enhanced_transformer_classifier import EnhancedTransformerConfig, EnhancedTransformerTextClassifier
