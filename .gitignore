@@ -66,3 +66,6 @@ comprehensive_spam_test_results.json
 *_env/
 temp/
 tmp/
+
+models/*.pt
+*.pt
