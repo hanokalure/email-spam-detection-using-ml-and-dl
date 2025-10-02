@@ -97,6 +97,7 @@ python scripts/download_models.py --list
 1. [SVM Model (15MB)](https://drive.google.com/file/d/1Vxjz4QV3FESvm7gMeKNqklA5uARPntLv/view?usp=sharing)
 2. [Enhanced Transformer (172MB)](https://drive.google.com/file/d/1kGD6Tg5JLIko0XhYPk2-WtAswj1S2Pgs/view?usp=sharing)  
 3. [CatBoost Model (10MB)](https://drive.google.com/file/d/1ofS_IU9QiypgkvFqNGLjUvSdUfEi9hjO/view?usp=sharing)
+4. [BalancedSpamNet (198.5MB)](https://drive.google.com/file/d/1_fAQNBByxgFi8tAg8J_ao-PhgV--pCQ8/view?usp=drive_link)
 
 Place downloaded files in the `models/` directory.
 
