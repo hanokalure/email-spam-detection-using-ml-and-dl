@@ -1,0 +1,1975 @@
+{
+  "test_info": {
+    "timestamp": "2025-10-02T13:58:47.309191",
+    "total_models": 4,
+    "test_cases_per_model": 40,
+    "spam_categories": [
+      "Financial Scams",
+      "Phishing",
+      "Product Promotion",
+      "Romance/Dating",
+      "Health/Medical"
+    ],
+    "ham_categories": [
+      "Banking Legitimate",
+      "Business Professional",
+      "Personal Communication",
+      "E-commerce Legitimate",
+      "Educational"
+    ]
+  },
+  "model_results": {
+    "BalancedSpamNet": {
+      "model_name": "BalancedSpamNet",
+      "total_tests": 40,
+      "correct_predictions": 32,
+      "spam_tests": 20,
+      "spam_correct": 20,
+      "ham_tests": 20,
+      "ham_correct": 12,
+      "category_results": {
+        "Financial Scams": {
+          "total": 4,
+          "correct": 4
+        },
+        "Phishing": {
+          "total": 4,
+          "correct": 4
+        },
+        "Product Promotion": {
+          "total": 4,
+          "correct": 4
+        },
+        "Romance/Dating": {
+          "total": 4,
+          "correct": 4
+        },
+        "Health/Medical": {
+          "total": 4,
+          "correct": 4
+        },
+        "Banking Legitimate": {
+          "total": 4,
+          "correct": 1
+        },
+        "Business Professional": {
+          "total": 4,
+          "correct": 3
+        },
+        "Personal Communication": {
+          "total": 4,
+          "correct": 3
+        },
+        "E-commerce Legitimate": {
+          "total": 4,
+          "correct": 1
+        },
+        "Educational": {
+          "total": 4,
+          "correct": 4
+        }
+      },
+      "predictions": [
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998492002487183,
+          "correct": true,
+          "text": "URGENT: Your account has been suspended! Click here to verify your bank details and avoid permanent ...",
+          "time_ms": 456.9861888885498
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997749924659729,
+          "correct": true,
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Send $500 processing fee to claim ...",
+          "time_ms": 35.359859466552734
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9996942281723022,
+          "correct": true,
+          "text": "FINAL NOTICE: Pay outstanding debt of $2,847 immediately or face legal action. Call now!",
+          "time_ms": 27.156829833984375
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998279809951782,
+          "correct": true,
+          "text": "Investment opportunity: Double your money in 30 days! Guaranteed returns of 200%. Limited time offer...",
+          "time_ms": 29.51359748840332
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998494386672974,
+          "correct": true,
+          "text": "Security Alert: Suspicious activity detected on your PayPal account. Verify identity: http://paypal-...",
+          "time_ms": 26.61919593811035
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998443126678467,
+          "correct": true,
+          "text": "Your Microsoft account will be deleted in 24 hours. Update payment info immediately: click.here.now",
+          "time_ms": 38.606882095336914
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998294115066528,
+          "correct": true,
+          "text": "Amazon Prime membership expired. Update credit card to continue service: amazon-update-billing.com",
+          "time_ms": 35.01486778259277
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9987809062004089,
+          "correct": true,
+          "text": "Apple ID locked due to suspicious login. Verify account: appleid-verification-secure.net",
+          "time_ms": 26.2451171875
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997757077217102,
+          "correct": true,
+          "text": "Amazing weight loss pills! Lose 30 pounds in 10 days without diet or exercise! Order now for $19.99!",
+          "time_ms": 32.06324577331543
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998410940170288,
+          "correct": true,
+          "text": "Male enhancement pills - Guaranteed results in 3 days! Discreet packaging. 50% off today only!",
+          "time_ms": 26.567459106445312
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998000264167786,
+          "correct": true,
+          "text": "Miracle anti-aging cream! Look 20 years younger overnight! Limited stock - order now!",
+          "time_ms": 34.699440002441406
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998395442962646,
+          "correct": true,
+          "text": "Revolutionary hair growth formula! Regrow full hair in 2 weeks! FDA approved* (*not really)",
+          "time_ms": 33.80775451660156
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998161196708679,
+          "correct": true,
+          "text": "Hello beautiful, I am a wealthy businessman from Nigeria looking for true love. Can we meet?",
+          "time_ms": 28.470993041992188
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998378753662109,
+          "correct": true,
+          "text": "Lonely? Meet hot singles in your area tonight! No strings attached. Click here for instant hookups!",
+          "time_ms": 26.445388793945312
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998000264167786,
+          "correct": true,
+          "text": "My name is Maria, I'm 25 and looking for serious relationship. I have $2M inheritance to share.",
+          "time_ms": 32.129764556884766
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998488426208496,
+          "correct": true,
+          "text": "SEXY RUSSIAN GIRLS want to chat with YOU! Free registration for limited time. Adults only!",
+          "time_ms": 26.974201202392578
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997721314430237,
+          "correct": true,
+          "text": "CURE DIABETES NATURALLY! Secret remedy doctors don't want you to know! 100% natural, no side effects...",
+          "time_ms": 38.84410858154297
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997209906578064,
+          "correct": true,
+          "text": "COVID-19 immunity booster! Prevent infection with this one weird trick! Doctors hate this!",
+          "time_ms": 27.718544006347656
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.999695897102356,
+          "correct": true,
+          "text": "Lose weight fast with this illegal diet pill celebrities use! Banned in 12 countries!",
+          "time_ms": 39.40987586975098
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.999472439289093,
+          "correct": true,
+          "text": "CANCER CURE DISCOVERED! Big Pharma hiding this $5 treatment that works 100% of the time!",
+          "time_ms": 39.32690620422363
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9995874762535095,
+          "correct": false,
+          "text": "Account Alert: $500.00 has been debited from your account ending xxxx1234 on 15-Jan-2024 at 14:30. A...",
+          "time_ms": 29.34098243713379
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997311234474182,
+          "correct": false,
+          "text": "Your account balance is $1,234.56 as of today. Last transaction: $50 withdrawal at ATM on Main Stree...",
+          "time_ms": 38.512229919433594
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9998039603233337,
+          "correct": false,
+          "text": "Payment of $1,200 has been successfully processed for invoice #INV-2024-001. Transaction ID: PAY7890...",
+          "time_ms": 27.59695053100586
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9983436326729134,
+          "correct": true,
+          "text": "Dear Customer, your monthly statement is now available. Login to view transactions for January 2024....",
+          "time_ms": 26.743173599243164
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999999603596734,
+          "correct": true,
+          "text": "Meeting scheduled for tomorrow 2 PM in Conference Room A. Please bring Q4 financial reports and mark...",
+          "time_ms": 38.06018829345703
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999999361416769,
+          "correct": true,
+          "text": "Project deadline extended to March 15th. Team meeting rescheduled to discuss new timeline and resour...",
+          "time_ms": 29.436826705932617
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.916521430015564,
+          "correct": false,
+          "text": "Your expense report for January has been approved. Reimbursement of $847.32 will be processed in nex...",
+          "time_ms": 32.58657455444336
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999910750320851,
+          "correct": true,
+          "text": "Client presentation went well. They're interested in our proposal. Next step: contract negotiation m...",
+          "time_ms": 36.501169204711914
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9722155332565308,
+          "correct": false,
+          "text": "Hey! Hope you're doing well. Want to grab coffee this weekend? I have some exciting news to share wi...",
+          "time_ms": 27.574539184570312
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999997635293738,
+          "correct": true,
+          "text": "Thanks for dinner last night! The restaurant was amazing. We should definitely go there again soon.",
+          "time_ms": 26.398420333862305
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999777603079565,
+          "correct": true,
+          "text": "Can you pick up milk and bread on your way home? Also, don't forget we have dinner with parents tomo...",
+          "time_ms": 29.018163681030273
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6915014982223511,
+          "correct": true,
+          "text": "Happy birthday! Hope you have a wonderful day. Looking forward to celebrating with you this evening.",
+          "time_ms": 27.813434600830078
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9992708563804626,
+          "correct": false,
+          "text": "Your Amazon order #112-7234567-1234567 has been shipped. Expected delivery: Jan 18th. Track your pac...",
+          "time_ms": 33.234357833862305
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9966242844238877,
+          "correct": true,
+          "text": "Thank you for your purchase! Your eBay item has been dispatched. Tracking number: 1Z999AA1234567890....",
+          "time_ms": 32.70459175109863
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9995191097259521,
+          "correct": false,
+          "text": "Order confirmation: iPhone 15 Pro - $999. Payment processed successfully. Estimated delivery: 3-5 bu...",
+          "time_ms": 30.318260192871094
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9997475743293762,
+          "correct": false,
+          "text": "Your return has been processed. Refund of $249.99 for wireless headphones will appear in your accoun...",
+          "time_ms": 25.693178176879883
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.999999927640836,
+          "correct": true,
+          "text": "Assignment reminder: Research paper on sustainable energy is due Friday. Office hours available Tues...",
+          "time_ms": 33.80894660949707
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999998696772394,
+          "correct": true,
+          "text": "Class canceled tomorrow due to weather conditions. Online lecture will be posted on course portal by...",
+          "time_ms": 34.2411994934082
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9999975818252551,
+          "correct": true,
+          "text": "Congratulations on completing your certification course. Your diploma will be mailed within 2 weeks.",
+          "time_ms": 32.765865325927734
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.999999932112317,
+          "correct": true,
+          "text": "Final exam schedule posted. Please check your student portal and contact advisor with any scheduling...",
+          "time_ms": 26.989221572875977
+        }
+      ]
+    },
+    "Enhanced_Transformer": {
+      "model_name": "Enhanced_Transformer",
+      "total_tests": 40,
+      "correct_predictions": 31,
+      "spam_tests": 20,
+      "spam_correct": 19,
+      "ham_tests": 20,
+      "ham_correct": 12,
+      "category_results": {
+        "Financial Scams": {
+          "total": 4,
+          "correct": 4
+        },
+        "Phishing": {
+          "total": 4,
+          "correct": 3
+        },
+        "Product Promotion": {
+          "total": 4,
+          "correct": 4
+        },
+        "Romance/Dating": {
+          "total": 4,
+          "correct": 4
+        },
+        "Health/Medical": {
+          "total": 4,
+          "correct": 4
+        },
+        "Banking Legitimate": {
+          "total": 4,
+          "correct": 4
+        },
+        "Business Professional": {
+          "total": 4,
+          "correct": 2
+        },
+        "Personal Communication": {
+          "total": 4,
+          "correct": 1
+        },
+        "E-commerce Legitimate": {
+          "total": 4,
+          "correct": 2
+        },
+        "Educational": {
+          "total": 4,
+          "correct": 3
+        }
+      },
+      "predictions": [
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.926031768321991,
+          "correct": true,
+          "text": "URGENT: Your account has been suspended! Click here to verify your bank details and avoid permanent ...",
+          "time_ms": 29.69050407409668
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259682297706604,
+          "correct": true,
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Send $500 processing fee to claim ...",
+          "time_ms": 8.554697036743164
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260234236717224,
+          "correct": true,
+          "text": "FINAL NOTICE: Pay outstanding debt of $2,847 immediately or face legal action. Call now!",
+          "time_ms": 4.458904266357422
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260312914848328,
+          "correct": true,
+          "text": "Investment opportunity: Double your money in 30 days! Guaranteed returns of 200%. Limited time offer...",
+          "time_ms": 4.905223846435547
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.07398998737335205,
+          "correct": false,
+          "text": "Security Alert: Suspicious activity detected on your PayPal account. Verify identity: http://paypal-...",
+          "time_ms": 4.366636276245117
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259944558143616,
+          "correct": true,
+          "text": "Your Microsoft account will be deleted in 24 hours. Update payment info immediately: click.here.now",
+          "time_ms": 4.295825958251953
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9160815477371216,
+          "correct": true,
+          "text": "Amazon Prime membership expired. Update credit card to continue service: amazon-update-billing.com",
+          "time_ms": 12.535572052001953
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9257227778434753,
+          "correct": true,
+          "text": "Apple ID locked due to suspicious login. Verify account: appleid-verification-secure.net",
+          "time_ms": 13.442277908325195
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259840250015259,
+          "correct": true,
+          "text": "Amazing weight loss pills! Lose 30 pounds in 10 days without diet or exercise! Order now for $19.99!",
+          "time_ms": 4.877805709838867
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260168671607971,
+          "correct": true,
+          "text": "Male enhancement pills - Guaranteed results in 3 days! Discreet packaging. 50% off today only!",
+          "time_ms": 4.982471466064453
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260122776031494,
+          "correct": true,
+          "text": "Miracle anti-aging cream! Look 20 years younger overnight! Limited stock - order now!",
+          "time_ms": 5.095243453979492
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.925977885723114,
+          "correct": true,
+          "text": "Revolutionary hair growth formula! Regrow full hair in 2 weeks! FDA approved* (*not really)",
+          "time_ms": 6.359338760375977
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259853959083557,
+          "correct": true,
+          "text": "Hello beautiful, I am a wealthy businessman from Nigeria looking for true love. Can we meet?",
+          "time_ms": 5.756616592407227
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.926030158996582,
+          "correct": true,
+          "text": "Lonely? Meet hot singles in your area tonight! No strings attached. Click here for instant hookups!",
+          "time_ms": 4.2629241943359375
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9257604479789734,
+          "correct": true,
+          "text": "My name is Maria, I'm 25 and looking for serious relationship. I have $2M inheritance to share.",
+          "time_ms": 5.293369293212891
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259992837905884,
+          "correct": true,
+          "text": "SEXY RUSSIAN GIRLS want to chat with YOU! Free registration for limited time. Adults only!",
+          "time_ms": 6.542444229125977
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260085821151733,
+          "correct": true,
+          "text": "CURE DIABETES NATURALLY! Secret remedy doctors don't want you to know! 100% natural, no side effects...",
+          "time_ms": 7.50732421875
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259196519851685,
+          "correct": true,
+          "text": "COVID-19 immunity booster! Prevent infection with this one weird trick! Doctors hate this!",
+          "time_ms": 5.144357681274414
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9260169863700867,
+          "correct": true,
+          "text": "Lose weight fast with this illegal diet pill celebrities use! Banned in 12 countries!",
+          "time_ms": 5.548715591430664
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9259388446807861,
+          "correct": true,
+          "text": "CANCER CURE DISCOVERED! Big Pharma hiding this $5 treatment that works 100% of the time!",
+          "time_ms": 6.641864776611328
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.07399582862854004,
+          "correct": true,
+          "text": "Account Alert: $500.00 has been debited from your account ending xxxx1234 on 15-Jan-2024 at 14:30. A...",
+          "time_ms": 7.217168807983398
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.074032723903656,
+          "correct": true,
+          "text": "Your account balance is $1,234.56 as of today. Last transaction: $50 withdrawal at ATM on Main Stree...",
+          "time_ms": 7.951974868774414
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.07413613796234131,
+          "correct": true,
+          "text": "Payment of $1,200 has been successfully processed for invoice #INV-2024-001. Transaction ID: PAY7890...",
+          "time_ms": 5.829334259033203
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.07459026575088501,
+          "correct": true,
+          "text": "Dear Customer, your monthly statement is now available. Login to view transactions for January 2024....",
+          "time_ms": 8.634090423583984
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9209010526537895,
+          "correct": true,
+          "text": "Meeting scheduled for tomorrow 2 PM in Conference Room A. Please bring Q4 financial reports and mark...",
+          "time_ms": 4.173040390014648
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9208048582077026,
+          "correct": true,
+          "text": "Project deadline extended to March 15th. Team meeting rescheduled to discuss new timeline and resour...",
+          "time_ms": 5.2280426025390625
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9251079559326172,
+          "correct": false,
+          "text": "Your expense report for January has been approved. Reimbursement of $847.32 will be processed in nex...",
+          "time_ms": 4.33802604675293
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.8819810152053833,
+          "correct": false,
+          "text": "Client presentation went well. They're interested in our proposal. Next step: contract negotiation m...",
+          "time_ms": 7.45844841003418
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9242549538612366,
+          "correct": false,
+          "text": "Hey! Hope you're doing well. Want to grab coffee this weekend? I have some exciting news to share wi...",
+          "time_ms": 4.33802604675293
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9196658805012703,
+          "correct": true,
+          "text": "Thanks for dinner last night! The restaurant was amazing. We should definitely go there again soon.",
+          "time_ms": 4.355907440185547
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9205061793327332,
+          "correct": false,
+          "text": "Can you pick up milk and bread on your way home? Also, don't forget we have dinner with parents tomo...",
+          "time_ms": 4.320621490478516
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9254561066627502,
+          "correct": false,
+          "text": "Happy birthday! Hope you have a wonderful day. Looking forward to celebrating with you this evening.",
+          "time_ms": 5.35273551940918
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9257441163063049,
+          "correct": false,
+          "text": "Your Amazon order #112-7234567-1234567 has been shipped. Expected delivery: Jan 18th. Track your pac...",
+          "time_ms": 4.652500152587891
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.925896942615509,
+          "correct": false,
+          "text": "Thank you for your purchase! Your eBay item has been dispatched. Tracking number: 1Z999AA1234567890....",
+          "time_ms": 4.576444625854492
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.0740777850151062,
+          "correct": true,
+          "text": "Order confirmation: iPhone 15 Pro - $999. Payment processed successfully. Estimated delivery: 3-5 bu...",
+          "time_ms": 4.664182662963867
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.07404398918151855,
+          "correct": true,
+          "text": "Your return has been processed. Refund of $249.99 for wireless headphones will appear in your accoun...",
+          "time_ms": 4.503965377807617
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9208033233880997,
+          "correct": true,
+          "text": "Assignment reminder: Research paper on sustainable energy is due Friday. Office hours available Tues...",
+          "time_ms": 7.846593856811523
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9206613898277283,
+          "correct": true,
+          "text": "Class canceled tomorrow due to weather conditions. Online lecture will be posted on course portal by...",
+          "time_ms": 4.990339279174805
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.9192844033241272,
+          "correct": false,
+          "text": "Congratulations on completing your certification course. Your diploma will be mailed within 2 weeks.",
+          "time_ms": 4.357099533081055
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9196205586194992,
+          "correct": true,
+          "text": "Final exam schedule posted. Please check your student portal and contact advisor with any scheduling...",
+          "time_ms": 7.800579071044922
+        }
+      ]
+    },
+    "SVM": {
+      "model_name": "SVM",
+      "total_tests": 40,
+      "correct_predictions": 32,
+      "spam_tests": 20,
+      "spam_correct": 19,
+      "ham_tests": 20,
+      "ham_correct": 13,
+      "category_results": {
+        "Financial Scams": {
+          "total": 4,
+          "correct": 4
+        },
+        "Phishing": {
+          "total": 4,
+          "correct": 3
+        },
+        "Product Promotion": {
+          "total": 4,
+          "correct": 4
+        },
+        "Romance/Dating": {
+          "total": 4,
+          "correct": 4
+        },
+        "Health/Medical": {
+          "total": 4,
+          "correct": 4
+        },
+        "Banking Legitimate": {
+          "total": 4,
+          "correct": 0
+        },
+        "Business Professional": {
+          "total": 4,
+          "correct": 4
+        },
+        "Personal Communication": {
+          "total": 4,
+          "correct": 4
+        },
+        "E-commerce Legitimate": {
+          "total": 4,
+          "correct": 1
+        },
+        "Educational": {
+          "total": 4,
+          "correct": 4
+        }
+      },
+      "predictions": [
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.8287235808682355,
+          "correct": true,
+          "text": "URGENT: Your account has been suspended! Click here to verify your bank details and avoid permanent ...",
+          "time_ms": 5.17582893371582
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7624381314884872,
+          "correct": true,
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Send $500 processing fee to claim ...",
+          "time_ms": 0.5595684051513672
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7394187828778864,
+          "correct": true,
+          "text": "FINAL NOTICE: Pay outstanding debt of $2,847 immediately or face legal action. Call now!",
+          "time_ms": 0.4341602325439453
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9138221207458688,
+          "correct": true,
+          "text": "Investment opportunity: Double your money in 30 days! Guaranteed returns of 200%. Limited time offer...",
+          "time_ms": 0.41675567626953125
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7847844787111172,
+          "correct": true,
+          "text": "Security Alert: Suspicious activity detected on your PayPal account. Verify identity: http://paypal-...",
+          "time_ms": 0.446319580078125
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7996333198210784,
+          "correct": true,
+          "text": "Your Microsoft account will be deleted in 24 hours. Update payment info immediately: click.here.now",
+          "time_ms": 0.4134178161621094
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.5172726810147932,
+          "correct": false,
+          "text": "Amazon Prime membership expired. Update credit card to continue service: amazon-update-billing.com",
+          "time_ms": 0.40841102600097656
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.5953249515993952,
+          "correct": true,
+          "text": "Apple ID locked due to suspicious login. Verify account: appleid-verification-secure.net",
+          "time_ms": 0.40459632873535156
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6933658735940125,
+          "correct": true,
+          "text": "Amazing weight loss pills! Lose 30 pounds in 10 days without diet or exercise! Order now for $19.99!",
+          "time_ms": 0.4074573516845703
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7598549872936455,
+          "correct": true,
+          "text": "Male enhancement pills - Guaranteed results in 3 days! Discreet packaging. 50% off today only!",
+          "time_ms": 0.3826618194580078
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.8225615766147916,
+          "correct": true,
+          "text": "Miracle anti-aging cream! Look 20 years younger overnight! Limited stock - order now!",
+          "time_ms": 0.39267539978027344
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.5844724203816664,
+          "correct": true,
+          "text": "Revolutionary hair growth formula! Regrow full hair in 2 weeks! FDA approved* (*not really)",
+          "time_ms": 0.3998279571533203
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.8164343031997765,
+          "correct": true,
+          "text": "Hello beautiful, I am a wealthy businessman from Nigeria looking for true love. Can we meet?",
+          "time_ms": 0.3807544708251953
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7714123800611109,
+          "correct": true,
+          "text": "Lonely? Meet hot singles in your area tonight! No strings attached. Click here for instant hookups!",
+          "time_ms": 0.41866302490234375
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.5900784451416082,
+          "correct": true,
+          "text": "My name is Maria, I'm 25 and looking for serious relationship. I have $2M inheritance to share.",
+          "time_ms": 0.3809928894042969
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7700649529373675,
+          "correct": true,
+          "text": "SEXY RUSSIAN GIRLS want to chat with YOU! Free registration for limited time. Adults only!",
+          "time_ms": 0.40459632873535156
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.774142666123624,
+          "correct": true,
+          "text": "CURE DIABETES NATURALLY! Secret remedy doctors don't want you to know! 100% natural, no side effects...",
+          "time_ms": 0.5228519439697266
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6792299567949712,
+          "correct": true,
+          "text": "COVID-19 immunity booster! Prevent infection with this one weird trick! Doctors hate this!",
+          "time_ms": 0.7946491241455078
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7213335000862078,
+          "correct": true,
+          "text": "Lose weight fast with this illegal diet pill celebrities use! Banned in 12 countries!",
+          "time_ms": 0.6439685821533203
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.807707659629472,
+          "correct": true,
+          "text": "CANCER CURE DISCOVERED! Big Pharma hiding this $5 treatment that works 100% of the time!",
+          "time_ms": 0.6017684936523438
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.6292823644307505,
+          "correct": false,
+          "text": "Account Alert: $500.00 has been debited from your account ending xxxx1234 on 15-Jan-2024 at 14:30. A...",
+          "time_ms": 0.4947185516357422
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5585435756706163,
+          "correct": false,
+          "text": "Your account balance is $1,234.56 as of today. Last transaction: $50 withdrawal at ATM on Main Stree...",
+          "time_ms": 0.5066394805908203
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5624230502449018,
+          "correct": false,
+          "text": "Payment of $1,200 has been successfully processed for invoice #INV-2024-001. Transaction ID: PAY7890...",
+          "time_ms": 0.4417896270751953
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5257564089673127,
+          "correct": false,
+          "text": "Dear Customer, your monthly statement is now available. Login to view transactions for January 2024....",
+          "time_ms": 0.4646778106689453
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7981136158547449,
+          "correct": true,
+          "text": "Meeting scheduled for tomorrow 2 PM in Conference Room A. Please bring Q4 financial reports and mark...",
+          "time_ms": 0.43463706970214844
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.8482677865589981,
+          "correct": true,
+          "text": "Project deadline extended to March 15th. Team meeting rescheduled to discuss new timeline and resour...",
+          "time_ms": 0.40984153747558594
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6761041687738184,
+          "correct": true,
+          "text": "Your expense report for January has been approved. Reimbursement of $847.32 will be processed in nex...",
+          "time_ms": 0.47588348388671875
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5705294451820353,
+          "correct": true,
+          "text": "Client presentation went well. They're interested in our proposal. Next step: contract negotiation m...",
+          "time_ms": 0.4222393035888672
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5253868177604286,
+          "correct": true,
+          "text": "Hey! Hope you're doing well. Want to grab coffee this weekend? I have some exciting news to share wi...",
+          "time_ms": 0.3821849822998047
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6842463733752251,
+          "correct": true,
+          "text": "Thanks for dinner last night! The restaurant was amazing. We should definitely go there again soon.",
+          "time_ms": 0.36978721618652344
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5930118686526797,
+          "correct": true,
+          "text": "Can you pick up milk and bread on your way home? Also, don't forget we have dinner with parents tomo...",
+          "time_ms": 0.3991127014160156
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6722936140226454,
+          "correct": true,
+          "text": "Happy birthday! Hope you have a wonderful day. Looking forward to celebrating with you this evening.",
+          "time_ms": 0.3731250762939453
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5292021174055006,
+          "correct": false,
+          "text": "Your Amazon order #112-7234567-1234567 has been shipped. Expected delivery: Jan 18th. Track your pac...",
+          "time_ms": 0.3845691680908203
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5887240331762644,
+          "correct": true,
+          "text": "Thank you for your purchase! Your eBay item has been dispatched. Tracking number: 1Z999AA1234567890....",
+          "time_ms": 0.3821849822998047
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.6254988401664316,
+          "correct": false,
+          "text": "Order confirmation: iPhone 15 Pro - $999. Payment processed successfully. Estimated delivery: 3-5 bu...",
+          "time_ms": 0.44918060302734375
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.6238501912621762,
+          "correct": false,
+          "text": "Your return has been processed. Refund of $249.99 for wireless headphones will appear in your accoun...",
+          "time_ms": 0.5083084106445312
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7324272866657977,
+          "correct": true,
+          "text": "Assignment reminder: Research paper on sustainable energy is due Friday. Office hours available Tues...",
+          "time_ms": 0.4291534423828125
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6362909503109875,
+          "correct": true,
+          "text": "Class canceled tomorrow due to weather conditions. Online lecture will be posted on course portal by...",
+          "time_ms": 0.4551410675048828
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5296769402145685,
+          "correct": true,
+          "text": "Congratulations on completing your certification course. Your diploma will be mailed within 2 weeks.",
+          "time_ms": 0.5066394805908203
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6584125801136915,
+          "correct": true,
+          "text": "Final exam schedule posted. Please check your student portal and contact advisor with any scheduling...",
+          "time_ms": 0.43272972106933594
+        }
+      ]
+    },
+    "CatBoost": {
+      "model_name": "CatBoost",
+      "total_tests": 40,
+      "correct_predictions": 34,
+      "spam_tests": 20,
+      "spam_correct": 16,
+      "ham_tests": 20,
+      "ham_correct": 18,
+      "category_results": {
+        "Financial Scams": {
+          "total": 4,
+          "correct": 4
+        },
+        "Phishing": {
+          "total": 4,
+          "correct": 4
+        },
+        "Product Promotion": {
+          "total": 4,
+          "correct": 3
+        },
+        "Romance/Dating": {
+          "total": 4,
+          "correct": 4
+        },
+        "Health/Medical": {
+          "total": 4,
+          "correct": 1
+        },
+        "Banking Legitimate": {
+          "total": 4,
+          "correct": 3
+        },
+        "Business Professional": {
+          "total": 4,
+          "correct": 4
+        },
+        "Personal Communication": {
+          "total": 4,
+          "correct": 3
+        },
+        "E-commerce Legitimate": {
+          "total": 4,
+          "correct": 4
+        },
+        "Educational": {
+          "total": 4,
+          "correct": 4
+        }
+      },
+      "predictions": [
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.8590222043918272,
+          "correct": true,
+          "text": "URGENT: Your account has been suspended! Click here to verify your bank details and avoid permanent ...",
+          "time_ms": 45.72296142578125
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.5276717994226294,
+          "correct": true,
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Send $500 processing fee to claim ...",
+          "time_ms": 24.28269386291504
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6330898388806515,
+          "correct": true,
+          "text": "FINAL NOTICE: Pay outstanding debt of $2,847 immediately or face legal action. Call now!",
+          "time_ms": 23.090124130249023
+        },
+        {
+          "category": "Financial Scams",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9107731780039815,
+          "correct": true,
+          "text": "Investment opportunity: Double your money in 30 days! Guaranteed returns of 200%. Limited time offer...",
+          "time_ms": 23.128986358642578
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6627858724993099,
+          "correct": true,
+          "text": "Security Alert: Suspicious activity detected on your PayPal account. Verify identity: http://paypal-...",
+          "time_ms": 23.595333099365234
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6602799833274998,
+          "correct": true,
+          "text": "Your Microsoft account will be deleted in 24 hours. Update payment info immediately: click.here.now",
+          "time_ms": 29.401302337646484
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6748966220622858,
+          "correct": true,
+          "text": "Amazon Prime membership expired. Update credit card to continue service: amazon-update-billing.com",
+          "time_ms": 25.314807891845703
+        },
+        {
+          "category": "Phishing",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6474332751368218,
+          "correct": true,
+          "text": "Apple ID locked due to suspicious login. Verify account: appleid-verification-secure.net",
+          "time_ms": 24.300098419189453
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6000881373648225,
+          "correct": true,
+          "text": "Amazing weight loss pills! Lose 30 pounds in 10 days without diet or exercise! Order now for $19.99!",
+          "time_ms": 24.303197860717773
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7970378072230122,
+          "correct": true,
+          "text": "Male enhancement pills - Guaranteed results in 3 days! Discreet packaging. 50% off today only!",
+          "time_ms": 25.43497085571289
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.7809600037636697,
+          "correct": true,
+          "text": "Miracle anti-aging cream! Look 20 years younger overnight! Limited stock - order now!",
+          "time_ms": 25.16460418701172
+        },
+        {
+          "category": "Product Promotion",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.7210172990145297,
+          "correct": false,
+          "text": "Revolutionary hair growth formula! Regrow full hair in 2 weeks! FDA approved* (*not really)",
+          "time_ms": 26.4742374420166
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6874212677849506,
+          "correct": true,
+          "text": "Hello beautiful, I am a wealthy businessman from Nigeria looking for true love. Can we meet?",
+          "time_ms": 25.098323822021484
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.5630462729703504,
+          "correct": true,
+          "text": "Lonely? Meet hot singles in your area tonight! No strings attached. Click here for instant hookups!",
+          "time_ms": 24.69491958618164
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6328893993024145,
+          "correct": true,
+          "text": "My name is Maria, I'm 25 and looking for serious relationship. I have $2M inheritance to share.",
+          "time_ms": 23.943424224853516
+        },
+        {
+          "category": "Romance/Dating",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.9515595238134168,
+          "correct": true,
+          "text": "SEXY RUSSIAN GIRLS want to chat with YOU! Free registration for limited time. Adults only!",
+          "time_ms": 23.800373077392578
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "SPAM",
+          "confidence": 0.6236832032841211,
+          "correct": true,
+          "text": "CURE DIABETES NATURALLY! Secret remedy doctors don't want you to know! 100% natural, no side effects...",
+          "time_ms": 25.032758712768555
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.5809341328314384,
+          "correct": false,
+          "text": "COVID-19 immunity booster! Prevent infection with this one weird trick! Doctors hate this!",
+          "time_ms": 24.643421173095703
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.5036133267189873,
+          "correct": false,
+          "text": "Lose weight fast with this illegal diet pill celebrities use! Banned in 12 countries!",
+          "time_ms": 24.686574935913086
+        },
+        {
+          "category": "Health/Medical",
+          "expected": "SPAM",
+          "predicted": "HAM",
+          "confidence": 0.5088615075983323,
+          "correct": false,
+          "text": "CANCER CURE DISCOVERED! Big Pharma hiding this $5 treatment that works 100% of the time!",
+          "time_ms": 24.164199829101562
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5996909908095347,
+          "correct": false,
+          "text": "Account Alert: $500.00 has been debited from your account ending xxxx1234 on 15-Jan-2024 at 14:30. A...",
+          "time_ms": 24.981021881103516
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5803014091297127,
+          "correct": true,
+          "text": "Your account balance is $1,234.56 as of today. Last transaction: $50 withdrawal at ATM on Main Stree...",
+          "time_ms": 23.267745971679688
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.8663115274148117,
+          "correct": true,
+          "text": "Payment of $1,200 has been successfully processed for invoice #INV-2024-001. Transaction ID: PAY7890...",
+          "time_ms": 23.02837371826172
+        },
+        {
+          "category": "Banking Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7215853175104334,
+          "correct": true,
+          "text": "Dear Customer, your monthly statement is now available. Login to view transactions for January 2024....",
+          "time_ms": 23.36907386779785
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.9231838121453207,
+          "correct": true,
+          "text": "Meeting scheduled for tomorrow 2 PM in Conference Room A. Please bring Q4 financial reports and mark...",
+          "time_ms": 24.249792098999023
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.8636345212658488,
+          "correct": true,
+          "text": "Project deadline extended to March 15th. Team meeting rescheduled to discuss new timeline and resour...",
+          "time_ms": 24.144887924194336
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7699045146444885,
+          "correct": true,
+          "text": "Your expense report for January has been approved. Reimbursement of $847.32 will be processed in nex...",
+          "time_ms": 22.3085880279541
+        },
+        {
+          "category": "Business Professional",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6820328593069034,
+          "correct": true,
+          "text": "Client presentation went well. They're interested in our proposal. Next step: contract negotiation m...",
+          "time_ms": 22.769927978515625
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "SPAM",
+          "confidence": 0.5306261918815464,
+          "correct": false,
+          "text": "Hey! Hope you're doing well. Want to grab coffee this weekend? I have some exciting news to share wi...",
+          "time_ms": 22.76778221130371
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7267934282755126,
+          "correct": true,
+          "text": "Thanks for dinner last night! The restaurant was amazing. We should definitely go there again soon.",
+          "time_ms": 22.8421688079834
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6099454857303661,
+          "correct": true,
+          "text": "Can you pick up milk and bread on your way home? Also, don't forget we have dinner with parents tomo...",
+          "time_ms": 22.907257080078125
+        },
+        {
+          "category": "Personal Communication",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7071397527350589,
+          "correct": true,
+          "text": "Happy birthday! Hope you have a wonderful day. Looking forward to celebrating with you this evening.",
+          "time_ms": 22.70960807800293
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5311770872453774,
+          "correct": true,
+          "text": "Your Amazon order #112-7234567-1234567 has been shipped. Expected delivery: Jan 18th. Track your pac...",
+          "time_ms": 23.342370986938477
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6765979935149466,
+          "correct": true,
+          "text": "Thank you for your purchase! Your eBay item has been dispatched. Tracking number: 1Z999AA1234567890....",
+          "time_ms": 22.636890411376953
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.591691241413929,
+          "correct": true,
+          "text": "Order confirmation: iPhone 15 Pro - $999. Payment processed successfully. Estimated delivery: 3-5 bu...",
+          "time_ms": 23.40221405029297
+        },
+        {
+          "category": "E-commerce Legitimate",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.6134449859418921,
+          "correct": true,
+          "text": "Your return has been processed. Refund of $249.99 for wireless headphones will appear in your accoun...",
+          "time_ms": 22.6593017578125
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.8565327645409987,
+          "correct": true,
+          "text": "Assignment reminder: Research paper on sustainable energy is due Friday. Office hours available Tues...",
+          "time_ms": 22.52817153930664
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.5639489007319527,
+          "correct": true,
+          "text": "Class canceled tomorrow due to weather conditions. Online lecture will be posted on course portal by...",
+          "time_ms": 23.717403411865234
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7969732172842321,
+          "correct": true,
+          "text": "Congratulations on completing your certification course. Your diploma will be mailed within 2 weeks.",
+          "time_ms": 23.606538772583008
+        },
+        {
+          "category": "Educational",
+          "expected": "HAM",
+          "predicted": "HAM",
+          "confidence": 0.7612265975352956,
+          "correct": true,
+          "text": "Final exam schedule posted. Please check your student portal and contact advisor with any scheduling...",
+          "time_ms": 22.849321365356445
+        }
+      ]
+    }
+  },
+  "summaries": {
+    "BalancedSpamNet": {
+      "model_name": "BalancedSpamNet",
+      "overall_accuracy": 80.0,
+      "spam_detection_accuracy": 100.0,
+      "ham_detection_accuracy": 60.0,
+      "perfect_categories": [
+        "Financial Scams",
+        "Phishing",
+        "Product Promotion",
+        "Romance/Dating",
+        "Health/Medical",
+        "Educational"
+      ],
+      "high_accuracy_categories": [
+        "Business Professional",
+        "Personal Communication"
+      ],
+      "low_accuracy_categories": [
+        "Banking Legitimate",
+        "E-commerce Legitimate"
+      ],
+      "total_tests": 40,
+      "category_breakdown": {
+        "Financial Scams": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Phishing": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Product Promotion": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Romance/Dating": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Health/Medical": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Banking Legitimate": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "Business Professional": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "Personal Communication": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "E-commerce Legitimate": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "Educational": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        }
+      }
+    },
+    "Enhanced_Transformer": {
+      "model_name": "Enhanced_Transformer",
+      "overall_accuracy": 77.5,
+      "spam_detection_accuracy": 95.0,
+      "ham_detection_accuracy": 60.0,
+      "perfect_categories": [
+        "Financial Scams",
+        "Product Promotion",
+        "Romance/Dating",
+        "Health/Medical",
+        "Banking Legitimate"
+      ],
+      "high_accuracy_categories": [
+        "Phishing",
+        "Educational"
+      ],
+      "low_accuracy_categories": [
+        "Personal Communication"
+      ],
+      "total_tests": 40,
+      "category_breakdown": {
+        "Financial Scams": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Phishing": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "Product Promotion": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Romance/Dating": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Health/Medical": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Banking Legitimate": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Business Professional": {
+          "accuracy": 50.0,
+          "correct": 2,
+          "total": 4
+        },
+        "Personal Communication": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "E-commerce Legitimate": {
+          "accuracy": 50.0,
+          "correct": 2,
+          "total": 4
+        },
+        "Educational": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        }
+      }
+    },
+    "SVM": {
+      "model_name": "SVM",
+      "overall_accuracy": 80.0,
+      "spam_detection_accuracy": 95.0,
+      "ham_detection_accuracy": 65.0,
+      "perfect_categories": [
+        "Financial Scams",
+        "Product Promotion",
+        "Romance/Dating",
+        "Health/Medical",
+        "Business Professional",
+        "Personal Communication",
+        "Educational"
+      ],
+      "high_accuracy_categories": [
+        "Phishing"
+      ],
+      "low_accuracy_categories": [
+        "Banking Legitimate",
+        "E-commerce Legitimate"
+      ],
+      "total_tests": 40,
+      "category_breakdown": {
+        "Financial Scams": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Phishing": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "Product Promotion": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Romance/Dating": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Health/Medical": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Banking Legitimate": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "Business Professional": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Personal Communication": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "E-commerce Legitimate": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "Educational": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        }
+      }
+    },
+    "CatBoost": {
+      "model_name": "CatBoost",
+      "overall_accuracy": 85.0,
+      "spam_detection_accuracy": 80.0,
+      "ham_detection_accuracy": 90.0,
+      "perfect_categories": [
+        "Financial Scams",
+        "Phishing",
+        "Romance/Dating",
+        "Business Professional",
+        "E-commerce Legitimate",
+        "Educational"
+      ],
+      "high_accuracy_categories": [
+        "Product Promotion",
+        "Banking Legitimate",
+        "Personal Communication"
+      ],
+      "low_accuracy_categories": [
+        "Health/Medical"
+      ],
+      "total_tests": 40,
+      "category_breakdown": {
+        "Financial Scams": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Phishing": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Product Promotion": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "Romance/Dating": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Health/Medical": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "Banking Legitimate": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "Business Professional": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Personal Communication": {
+          "accuracy": 75.0,
+          "correct": 3,
+          "total": 4
+        },
+        "E-commerce Legitimate": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        },
+        "Educational": {
+          "accuracy": 100.0,
+          "correct": 4,
+          "total": 4
+        }
+      }
+    }
+  }
+}
