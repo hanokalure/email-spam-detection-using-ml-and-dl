@@ -339,11 +339,11 @@ class ComprehensiveSpamTest:
                     results[model_name].append({
                         'text': text,
                         'prediction': 'ERROR',
-                        'confidence': 0.0,
-                        'probability': 0.0,
-                        'is_spam': False,
-                        'correct': False,
-                        'time_ms': 0.0,
+                        'confidence': float(0.0),
+                        'probability': float(0.0),
+                        'is_spam': bool(False),
+                        'correct': bool(False),
+                        'time_ms': float(0.0),
                         'expected': expected_label,
                         'error': str(e)
                     })
