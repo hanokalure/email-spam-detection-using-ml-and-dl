@@ -48,9 +48,43 @@ class CatBoostPredictor:
     
     def _load_model(self):
         """Load model, vectorizer, and preprocessor"""
-        # Load the saved model
-        with open(self.model_path, 'rb') as f:
-            model_data = pickle.load(f)
+        # Load the saved model with joblib first (most compatible) then fallback to pickle
+        import sys
+        import types
+        import joblib
+        
+        # Add src to path for class imports and handle __main__ mappings
+        src_path = os.path.join(os.path.dirname(__file__), 'src')
+        if src_path not in sys.path:
+            sys.path.insert(0, src_path)
+        
+        # Handle potential __main__.SimplePreprocessor references
+        try:
+            from simple_svm_classifier import SimplePreprocessor as SSP
+            if '__main__' not in sys.modules:
+                sys.modules['__main__'] = types.ModuleType('__main__')
+            setattr(sys.modules['__main__'], 'SimplePreprocessor', SSP)
+        except Exception:
+            pass
+        
+        # Try joblib first (more reliable for sklearn/catboost models)
+        try:
+            model_data = joblib.load(self.model_path)
+            print("✅ Model loaded successfully with joblib")
+        except Exception as e:
+            print(f"⚠️ Joblib loading failed: {e}")
+            print("Trying pickle loading...")
+            
+            # Fallback to pickle
+            try:
+                with open(self.model_path, 'rb') as f:
+                    model_data = pickle.load(f)
+                print("✅ Model loaded successfully with pickle")
+            except Exception as e2:
+                print(f"❌ Pickle loading also failed: {e2}")
+                # Create minimal structure
+                model_data = {'model': None, 'vectorizer': None, 'preprocessor': None}
+                print("Creating minimal model structure...")
         
         if isinstance(model_data, dict):
             # New format with all components

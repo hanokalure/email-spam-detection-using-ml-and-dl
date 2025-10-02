@@ -12,9 +12,8 @@ from pathlib import Path
 # Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 
-# Import all available predictors
+# Import available predictors (Enhanced Transformer, SVM, CatBoost)
 from predict_enhanced_transformer import EnhancedTransformerPredictor
-from predict_transformer import TransformerPredictor
 from predict_svm import SVMPredictor
 from predict_catboost import CatBoostPredictor
 
@@ -31,7 +30,7 @@ class ModelManager:
         """Scan for available model files"""
         models = {}
         
-        # All available ML models
+        # Available ML models (Original Transformer removed)
         model_info = {
             # Enhanced Transformer - Latest model with 99.48% recall
             "enhanced_transformer_99recall.pt": {
@@ -42,18 +41,9 @@ class ModelManager:
                 "speed": "~10-20ms (GPU)",
                 "details": "Latest trained model with focal loss and max recall optimization"
             },
-            # Original Transformer
-            "transformer_best.pt": {
-                "name": "🥈 Transformer (Original) – Balanced Performance",
-                "accuracy": "~95-96% (balanced precision/recall)",
-                "type": "Transformer",
-                "dataset": "Mixed dataset",
-                "speed": "~10-20ms (GPU)",
-                "details": "Original transformer model with balanced performance"
-            },
             # SVM Model
             "svm_full.pkl": {
-                "name": "🥉 SVM (Support Vector Machine) – Fast & Reliable",
+                "name": "🥈 SVM (Support Vector Machine) – Fast & Reliable",
                 "accuracy": "~95-98% (traditional ML)",
                 "type": "SVM",
                 "dataset": "Email corpus",
@@ -62,7 +52,7 @@ class ModelManager:
             },
             # CatBoost Model
             "catboost_tuned.pkl": {
-                "name": "🚀 CatBoost – Gradient Boosting Power",
+                "name": "🥉 CatBoost – Gradient Boosting Power",
                 "accuracy": "~96-97% (ensemble method)",
                 "type": "CatBoost",
                 "dataset": "Comprehensive dataset",
@@ -147,12 +137,6 @@ class ModelManager:
                 predictor = EnhancedTransformerPredictor(model_path)
                 self.current_model = predictor
                 self.predict_method = "enhanced_transformer"
-            
-            elif model_type == "Transformer":
-                # Load Original Transformer predictor
-                predictor = TransformerPredictor(model_path)
-                self.current_model = predictor
-                self.predict_method = "transformer"
             
             elif model_type == "SVM":
                 # Load SVM predictor

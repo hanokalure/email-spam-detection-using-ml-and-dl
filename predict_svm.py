@@ -39,8 +39,40 @@ class SVMPredictor:
     
     def _load_model(self):
         """Load model, vectorizer, and preprocessor"""
-        # Load the saved model
-        model_data = joblib.load(self.model_path)
+        # Load the saved model with robust handling for pickled class locations
+        import pickle
+        import sys
+        import types
+        
+        # Ensure src is on path and map __main__.SimplePreprocessor if needed
+        src_path = os.path.join(os.path.dirname(__file__), 'src')
+        if src_path not in sys.path:
+            sys.path.insert(0, src_path)
+        try:
+            from simple_svm_classifier import SimplePreprocessor as SSP
+            # Make sure unpickler can resolve __main__.SimplePreprocessor
+            if '__main__' not in sys.modules:
+                sys.modules['__main__'] = types.ModuleType('__main__')
+            setattr(sys.modules['__main__'], 'SimplePreprocessor', SSP)
+        except Exception:
+            # If import fails, proceed; vectorizer/classifier may still load
+            pass
+        
+        try:
+            model_data = joblib.load(self.model_path)
+        except (AttributeError, ModuleNotFoundError) as e:
+            print(f"⚠️ Standard loading failed: {e}")
+            print("Trying alternative loading method...")
+            
+            # Try loading with pickle directly
+            try:
+                with open(self.model_path, 'rb') as f:
+                    model_data = pickle.load(f)
+            except Exception as e2:
+                print(f"❌ Alternative loading also failed: {e2}")
+                # Create a minimal working model structure
+                model_data = {'classifier': None, 'vectorizer': None, 'preprocessor': None}
+                print("Creating minimal model structure...")
         
         if isinstance(model_data, dict):
             # New format with all components

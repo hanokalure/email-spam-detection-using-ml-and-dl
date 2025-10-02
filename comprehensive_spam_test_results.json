@@ -1,0 +1,222 @@
+{
+  "test_metadata": {
+    "timestamp": "2025-10-02 10:56:32",
+    "models_tested": [
+      "Enhanced_Transformer",
+      "SVM",
+      "CatBoost"
+    ],
+    "total_categories": 10,
+    "examples_per_category": 20
+  },
+  "detailed_results": {
+    "SPAM_financial_scams": {
+      "Enhanced_Transformer": [
+        {
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Click here to claim now!",
+          "prediction": "SPAM",
+          "confidence": 0.9260277152061462,
+          "probability": 0.9260277152061462,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 178.89714241027832,
+          "expected": "SPAM"
+        },
+        {
+          "text": "URGENT: Your bank account will be closed unless you verify immediately. Click: secure-bank-verify.com",
+          "prediction": "SPAM",
+          "confidence": 0.9260151982307434,
+          "probability": 0.9260151982307434,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 65.35696983337402,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Make $5000 working from home! No experience required. Start today!",
+          "prediction": "SPAM",
+          "confidence": 0.9259968996047974,
+          "probability": 0.9259968996047974,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 10.13946533203125,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Investment opportunity of a lifetime! Double your money in 30 days guaranteed!",
+          "prediction": "SPAM",
+          "confidence": 0.9259734153747559,
+          "probability": 0.9259734153747559,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 10.593414306640625,
+          "expected": "SPAM"
+        },
+        {
+          "text": "You have inherited $2.5 million from a distant relative. Reply with your details.",
+          "prediction": "SPAM",
+          "confidence": 0.9259668588638306,
+          "probability": 0.9259668588638306,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 24.734973907470703,
+          "expected": "SPAM"
+        },
+        {
+          "text": "FOREX trading secret that banks don't want you to know! Make millions!",
+          "prediction": "SPAM",
+          "confidence": 0.9259715676307678,
+          "probability": 0.9259715676307678,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 18.898963928222656,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Your credit card has been charged $499. Click here to dispute if unauthorized.",
+          "prediction": "SPAM",
+          "confidence": 0.9258395433425903,
+          "probability": 0.9258395433425903,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 10.07843017578125,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Free money from government grants! No repayment required. Apply now!",
+          "prediction": "SPAM",
+          "confidence": 0.9260271787643433,
+          "probability": 0.9260271787643433,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 25.519609451293945,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Bitcoin investment alert! Buy now before price skyrockets to $100k!",
+          "prediction": "SPAM",
+          "confidence": 0.9260071516036987,
+          "probability": 0.9260071516036987,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 22.75991439819336,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Debt consolidation offer - eliminate all debts instantly. Call now!",
+          "prediction": "SPAM",
+          "confidence": 0.9259309768676758,
+          "probability": 0.9259309768676758,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 9.515047073364258,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Pre-approved for $25,000 loan with no credit check required.",
+          "prediction": "SPAM",
+          "confidence": 0.9259675741195679,
+          "probability": 0.9259675741195679,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 13.285160064697266,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Tax refund of $3,847 is waiting for you. Click here to claim.",
+          "prediction": "SPAM",
+          "confidence": 0.9259033799171448,
+          "probability": 0.9259033799171448,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 31.096220016479492,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Your PayPal account shows suspicious activity. Verify now to avoid suspension.",
+          "prediction": "SPAM",
+          "confidence": 0.9259402751922607,
+          "probability": 0.9259402751922607,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 6.688356399536133,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Earn $200 per day answering simple surveys online. Join millions!",
+          "prediction": "SPAM",
+          "confidence": 0.9257739186286926,
+          "probability": 0.9257739186286926,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 8.396148681640625,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Stock tip: ACME Corp will increase 500% next week. Buy now!",
+          "prediction": "SPAM",
+          "confidence": 0.9259185194969177,
+          "probability": 0.9259185194969177,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 18.62621307373047,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Your stimulus check of $1,200 is ready. Enter SSN to claim.",
+          "prediction": "SPAM",
+          "confidence": 0.9257936477661133,
+          "probability": 0.9257936477661133,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 26.52144432067871,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Cryptocurrency mining opportunity - earn $1000 daily guaranteed!",
+          "prediction": "SPAM",
+          "confidence": 0.925914466381073,
+          "probability": 0.925914466381073,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 5.692005157470703,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Your retirement account needs immediate attention. Click to secure.",
+          "prediction": "SPAM",
+          "confidence": 0.9259658455848694,
+          "probability": 0.9259658455848694,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 11.95669174194336,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Win $10,000 cash prize! You're our lucky winner today!",
+          "prediction": "SPAM",
+          "confidence": 0.9260305762290955,
+          "probability": 0.9260305762290955,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 7.153034210205078,
+          "expected": "SPAM"
+        },
+        {
+          "text": "Exclusive investment club invitation - minimum return 300% annually.",
+          "prediction": "SPAM",
+          "confidence": 0.9256751537322998,
+          "probability": 0.9256751537322998,
+          "is_spam": true,
+          "correct": true,
+          "time_ms": 6.350994110107422,
+          "expected": "SPAM"
+        }
+      ],
+      "SVM": [
+        {
+          "text": "Congratulations! You've won $50,000 in the International Lottery! Click here to claim now!",
+          "prediction": "SPAM",
+          "confidence": 0.8316316956751176,
+          "probability": 0.8316316956751176,
+          "is_spam": 
